@@ -1,0 +1,1 @@
+<h1 class="text-purple-700 font-bold">Hello, world!</h1>
