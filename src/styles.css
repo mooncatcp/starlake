@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+.elevated {
+  @apply shadow-2xl border-[1px] border-solid border-midcol;
+}
+
+.card {
+  @apply elevated p-8 md:p-12 rounded-xl bg-surface w-full max-w-2xl;
+}

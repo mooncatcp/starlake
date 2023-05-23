@@ -6,8 +6,14 @@
     "welcome": {
       "title": "Welcome to Mooncat!",
       "text": "Mooncat is a new decentralized chat platform concerned about the freedom of speech.",
-      "login": "Login",
-      "register": "Sign up"
+      "login": "I already have an account",
+      "register": "I don't have an account"
+    },
+    "register": {
+      "title": "Sign up"
+    },
+    "login": {
+      "title": "Sign in"
     }
   }
 }

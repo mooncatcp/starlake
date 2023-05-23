@@ -1,10 +1,11 @@
 <template>
   <div class="w-full h-full min-h-screen">
-    <router-view v-slot="{ Component }">
+    <LanguageSwitcher />
+    <router-view v-slot="{ Component, route }">
       <suspense>
-        <div>
-          <component :is="Component"></component>
-        </div>
+        <transition>
+          <component :key="route.path" :is="Component"></component>
+        </transition>
         <template #fallback>
           <Loading />
         </template>
@@ -14,4 +15,5 @@
 </template>
 <script setup>
 import Loading from "./components/ui/Loading.vue";
+import LanguageSwitcher from "./components/LanguageSwitcher.vue";
 </script>
