@@ -1,4 +1,9 @@
-import {createLocalStore} from '../lib/stores/local'
+import { useLocalStorage } from '@vueuse/core'
 
-export const publicKeyStore = createLocalStore('pub')
-export const privateKeyStore = createLocalStore('priv')
+export interface KeysStore {
+  private: string | null
+  public: string | null
+}
+
+export const useKeysStore = () =>
+  useLocalStorage<KeysStore>('keys', { private: null, public: null })

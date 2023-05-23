@@ -1,0 +1,13 @@
+{
+  "login": {
+    "errors": {
+      "keyImport": "Key import error."
+    },
+    "welcome": {
+      "title": "Welcome to Mooncat!",
+      "text": "Mooncat is a new decentralized chat platform concerned about the freedom of speech.",
+      "login": "Login",
+      "register": "Sign up"
+    }
+  }
+}

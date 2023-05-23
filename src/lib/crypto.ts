@@ -22,7 +22,7 @@ export const importPem = (pem: string, type: 'public' | 'private') => {
   const pemFooter = `-----END ${type.toUpperCase()} KEY-----`
   const pemContents = pem.substring(
     pemHeader.length,
-    pem.length - pemFooter.length
+    pem.length - pemFooter.length,
   )
   const binaryDerString = window.atob(pemContents)
   return str2ab(binaryDerString)
@@ -30,7 +30,7 @@ export const importPem = (pem: string, type: 'public' | 'private') => {
 
 export const ALL_KEY_USAGES: KeyUsage[] = [
   'sign', 'verify', 'encrypt', 'decrypt', 'deriveKey', 'deriveBits',
-  'wrapKey', 'unwrapKey'
+  'wrapKey', 'unwrapKey',
 ]
 
 export const sign = (data: ArrayBuffer, key: CryptoKey) => {
@@ -46,7 +46,7 @@ export const generateKeyPair = () => {
     {
       name: 'RSASSA-PKCS1-v1_5',
       modulusLength: 1024,
-      publicExponent: new Uint8Array([1, 0, 1]),
+      publicExponent: new Uint8Array([ 1, 0, 1 ]),
       hash: 'SHA-256',
     },
     true,
@@ -62,7 +62,7 @@ export const importKey = (data: ArrayBuffer, type: 'private' | 'public' | 'secre
       data,
       { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
       true,
-      ALL_KEY_USAGES
+      ALL_KEY_USAGES,
     )
   case 'secret':
     return window.crypto.subtle.importKey(
@@ -70,7 +70,7 @@ export const importKey = (data: ArrayBuffer, type: 'private' | 'public' | 'secre
       data,
       'AES-CBC',
       true,
-      ALL_KEY_USAGES
+      ALL_KEY_USAGES,
     )
   case 'private':
     return window.crypto.subtle.importKey(
@@ -78,7 +78,7 @@ export const importKey = (data: ArrayBuffer, type: 'private' | 'public' | 'secre
       data,
       { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
       true,
-      ALL_KEY_USAGES
+      ALL_KEY_USAGES,
     )
   }
 }
